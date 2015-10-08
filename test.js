@@ -13,6 +13,18 @@ var test = require('tape-catch')
 var appendUntil = require('./')
 
 /*!
+ * helper functions.
+ */
+
+function len (length) {
+  return (list) => list.length === length
+}
+
+function incrementBy (val) {
+  return (list) => list.pop() + val
+}
+
+/*!
  * tests.
  */
 
@@ -23,11 +35,3 @@ test('appendUntil()', function (t) {
   t.throws(appendUntil.bind(null, 7, 47), 'Throws on bad predicate')
   t.end()
 })
-
-function len (length) {
-  return (list) => list.length === length
-}
-
-function incrementBy (val) {
-  return (list) => Number(list.slice(-1)) + val
-}
