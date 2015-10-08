@@ -1,0 +1,24 @@
+after_success:
+  - python travis_after_all.py
+  - export $(cat .to_export_back)
+  - npm run semantic-release
+before_install:
+  - npm i -g npm@latest
+before_script:
+  - npm prune
+  - 'curl -Lo travis_after_all.py https://git.io/vLSON'
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - node_modules
+language: node_js
+node_js:
+  - '4.1'
+  - 'iojs'
+notifications:
+  email: true
+script:
+  - npm test --silent
+sudo: false
