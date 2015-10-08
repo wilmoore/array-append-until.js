@@ -13,10 +13,11 @@ branches:
 cache:
   directories:
     - node_modules
+except:
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
 language: node_js
 node_js:
-  - '4.1'
-  - 'iojs'
+  - '4'
 notifications:
   email: true
 script:
