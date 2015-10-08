@@ -17,11 +17,15 @@ var appendUntil = require('./')
  */
 
 function len (length) {
-  return (list) => list.length === length
+  return function (list) {
+    return list.length === length
+  }
 }
 
 function incrementBy (val) {
-  return (list) => list.pop() + val
+  return function (list) {
+    return list.pop() + val
+  }
 }
 
 /*!
